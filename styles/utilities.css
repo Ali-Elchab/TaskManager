@@ -1,0 +1,31 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+img {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
+
+.page {
+  display: flex;
+  position: fixed;
+  overflow-y: scroll;
+  width: 700px;
+  height: 100vh;
+  align-items: center;
+  background-color: #f3cd83;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  background-color: #fff4de;
+}
+
+.page::-webkit-scrollbar {
+  display: none;
+}
