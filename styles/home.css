@@ -1,0 +1,53 @@
+.title {
+  padding-top: 50px;
+}
+
+h1 {
+  font-size: 60px;
+  font-family: cursive;
+  font-weight: bold;
+}
+
+.options {
+  width: 100%;
+  margin: 25px 0 25px 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+#add-to-do {
+  background-color: #f3cd83;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border-color: transparent;
+  font-size: 40px;
+  font-weight: bolder;
+}
+
+#filter-button {
+  position: absolute;
+  background-color: transparent;
+  border: transparent;
+  right: 320px;
+}
+
+.search-bar {
+  position: absolute;
+  right: 0;
+}
+
+.search-bar input {
+  background-color: #edcc8b;
+  border: 0px;
+  border-radius: 15px;
+  height: 40px;
+  padding: 10px 0 10px 40px;
+  width: 300px;
+  font-size: 16px;
+}
+
+.search-bar i {
+  position: absolute;
+  padding: 10px 10px;
+}
