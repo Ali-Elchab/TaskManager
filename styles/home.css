@@ -4,41 +4,31 @@
 
 h1 {
   font-size: 60px;
-  font-family: cursive;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   font-weight: bold;
 }
 
 .options {
   width: 100%;
-  margin: 25px 0 25px 0;
-  position: relative;
+  margin: 45px 0 35px 0;
   display: flex;
   align-items: center;
 }
-#add-to-do {
-  background-color: #f3cd83;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  border-color: transparent;
-  font-size: 40px;
-  font-weight: bolder;
-}
 
 #filter-button {
-  position: absolute;
   background-color: transparent;
   border: transparent;
-  right: 320px;
+  margin-left: 80px;
 }
 
 .search-bar {
-  position: absolute;
-  right: 0;
+  transform: translateX(35%);
 }
 
 .search-bar input {
   background-color: #edcc8b;
+  opacity: 0.6;
+  color: black;
   border: 0px;
   border-radius: 15px;
   height: 40px;
@@ -50,4 +40,70 @@ h1 {
 .search-bar i {
   position: absolute;
   padding: 10px 10px;
+}
+
+.task {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  height: 120px;
+  margin: 20px 0 0 0;
+  background-color: #edcc8b;
+  border-radius: 10px;
+  position: relative;
+}
+
+.task-title,
+.description-input,
+.date {
+  width: 80%;
+  margin: 15px 0 0 40px;
+  background-color: transparent;
+  font-size: 16px;
+  border: none;
+  color: black;
+}
+
+.input-task input[name="description-input"] {
+  margin-top: 10px;
+  height: 50px;
+}
+
+input:focus,
+[contenteditable] {
+  outline: 0px solid transparent;
+}
+
+#add-to-do {
+  background-color: #fff4de;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border-color: transparent;
+  font-size: 30px;
+  font-weight: bolder;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+.date-input-container,
+.task-deadline {
+  padding: 32px 40px 10px 40px;
+  color: grey;
+  font-size: small;
+}
+
+.date-input-container input,
+.task-deadline input {
+  margin: 0;
+  color: grey;
+  font-size: small;
+  width: 100px;
+}
+
+.tasks-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }

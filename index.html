@@ -17,14 +17,35 @@
             <h1>TO DO LIST</h1>
         </div>
         <div class="options">
-            <button id="add-to-do">+</button>
             <button id="filter-button"><i class="fa fa-filter" style="color: #f3cd83; font-size: 36px;"></i></button>
             <div class="search-bar">
                 <i class="fa fa-search"></i>
                 <input name="search" type="text" placeholder="Search">
             </div>
         </div>
+        <div class="task input-task" id="add-task-container">
+            <input type="text" name="title-input" placeholder="Title" id="title-input" class="task-title">
+            <input type="text" name="description-input" placeholder="Desription" id="description-input"
+                class="description-input">
+            <div class="date-input-container">
+                <label for="date">Deadline:</label>
+                <input type="date" name="date" placeholder="Date" id="date" class="date">
+            </div>
+            <button id="add-to-do">+</button>
+        </div>
+        <div class="tasks-container" id="all-tasks">
+            <div class="task" id="task1">
+                <h3 contenteditable="true" class="task-title" id="task-title"> Finish project</h3>
+                <p id="task-description" class="description-input">I should finish this project by tomorrow max</p>
+                <div class="task-deadline">
+                    <label for="deadline-date">Deadline</label>
+                    <input type="date" name="deadline-date" id="deadline-date" class="date">
+                </div>
+            </div>
+        </div>
     </div>
+
+
 
 
 
