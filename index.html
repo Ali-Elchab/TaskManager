@@ -23,10 +23,9 @@
                 <input name="search" type="text" placeholder="Search">
             </div>
         </div>
-        <div class="task input-task" id="add-task-container">
-            <input type="text" name="title-input" placeholder="Title" id="title-input" class="task-title">
-            <input type="text" name="description-input" placeholder="Desription" id="description-input"
-                class="description-input">
+        <div class="input-task" id="add-task-container">
+            <input name="title-input" placeholder="Title" id="title-input" class="task-title">
+            <input name="description-input" placeholder="Desription" id="description-input" class="description-input">
             <div class="date-input-container">
                 <label for="date">Deadline:</label>
                 <input type="date" name="date" placeholder="Date" id="date" class="date">
@@ -34,15 +33,9 @@
             <button id="add-to-do">+</button>
         </div>
         <div class="tasks-container" id="all-tasks">
-            <div class="task" id="task1">
-                <h3 contenteditable="true" class="task-title" id="task-title"> Finish project</h3>
-                <p id="task-description" class="description-input">I should finish this project by tomorrow max</p>
-                <div class="task-deadline">
-                    <label for="deadline-date">Deadline</label>
-                    <input type="date" name="deadline-date" id="deadline-date" class="date">
-                </div>
-            </div>
+
         </div>
+    </div>
     </div>
 
 
@@ -52,7 +45,7 @@
 
 
 
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="./scripts/home.js"></script>
 </body>
 

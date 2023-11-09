@@ -42,7 +42,8 @@ h1 {
   padding: 10px 10px;
 }
 
-.task {
+.task,
+.input-task {
   display: flex;
   flex-direction: column;
   width: 80%;
@@ -74,7 +75,8 @@ input:focus,
   outline: 0px solid transparent;
 }
 
-#add-to-do {
+#add-to-do,
+.delete-button {
   background-color: #fff4de;
   width: 40px;
   height: 40px;
@@ -85,6 +87,19 @@ input:focus,
   position: absolute;
   bottom: 10px;
   right: 10px;
+}
+
+.delete-button {
+  font-size: 22px;
+  background-color: transparent;
+}
+
+#task-check {
+  position: absolute;
+  top: 15px;
+  right: 22px;
+  width: 16px;
+  height: 16px;
 }
 
 .date-input-container,
@@ -105,5 +120,13 @@ input:focus,
 .tasks-container {
   width: 100%;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.display-task-deadline {
+  display: flex;
+  padding: 32px 40px 10px 40px;
+  gap: 10px;
+  font-size: 14px;
 }
