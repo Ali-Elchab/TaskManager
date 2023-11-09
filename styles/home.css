@@ -37,9 +37,12 @@ h1 {
   font-size: 16px;
 }
 
-.search-bar i {
+#search-button {
   position: absolute;
   padding: 10px 10px;
+  border-color: transparent;
+  background-color: transparent;
+  z-index: 2;
 }
 
 .task,
