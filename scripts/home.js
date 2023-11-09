@@ -22,8 +22,26 @@ function addTask() {
         <input class="checkbox" type="checkbox" id="task-check">
         
     </div>`;
+
     descriptionInput.value = "";
     titleInput.value = "";
     inputDate.value = "";
+    let deleteButtons = document.querySelectorAll(".delete-button");
+    for (let i = 0; i < deleteButtons.length; i++) {
+      deleteButtons[i].addEventListener("click", function () {
+        deleteButtons[i].parentElement.remove();
+      });
+    }
+
+    let checkbox = document.querySelectorAll(".checkbox");
+    for (let i = 0; i < checkbox.length; i++) {
+      checkbox[i].addEventListener("change", function () {
+        if (this.checked) {
+          checkbox[i].parentElement.style.order = "2";
+        } else {
+          checkbox[i].parentElement.style.order = "0";
+        }
+      });
+    }
   }
 }
