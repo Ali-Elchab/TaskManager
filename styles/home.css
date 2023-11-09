@@ -57,6 +57,10 @@ h1 {
   position: relative;
 }
 
+.task {
+  order: 1;
+}
+
 .task-title,
 .description-input,
 .date {
@@ -68,9 +72,16 @@ h1 {
   color: black;
 }
 
-.input-task input[name="description-input"] {
-  margin-top: 10px;
-  height: 50px;
+.description-input {
+  overflow-y: auto;
+  height: 45%;
+  margin: 0;
+  padding: 5px 0 0 40px;
+}
+
+.description-input::-webkit-scrollbar,
+.task-title::-webkit-scrollbar {
+  display: none;
 }
 
 input:focus,
@@ -97,23 +108,21 @@ input:focus,
   background-color: transparent;
 }
 
-#task-check {
+.push-pin {
   position: absolute;
-  top: 15px;
-  right: 22px;
-  width: 16px;
-  height: 16px;
+  top: 10px;
+  right: 15px;
+  background-color: transparent;
+  border: transparent;
 }
 
-.date-input-container,
-.task-deadline {
+.date-input-container {
   padding: 32px 40px 10px 40px;
   color: grey;
   font-size: small;
 }
 
-.date-input-container input,
-.task-deadline input {
+.date-input-container input {
   margin: 0;
   color: grey;
   font-size: small;
@@ -127,9 +136,9 @@ input:focus,
   align-items: center;
 }
 
-.display-task-deadline {
-  display: flex;
-  padding: 32px 40px 10px 40px;
-  gap: 10px;
-  font-size: 14px;
+.display-date {
+  position: absolute;
+  bottom: 7px;
+  left: 40px;
+  font-size: 12px;
 }
