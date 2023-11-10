@@ -5,6 +5,8 @@ let taskContainer = document.getElementById("all-tasks");
 let addButton = document.getElementById("add-to-do");
 let searchInput = document.getElementById("search");
 let searchButton = document.getElementById("search-button");
+let filterButton = document.getElementById("filter-button");
+let options = document.getElementsByClassName("options")[0];
 let completed = [];
 let taskList = [];
 addButton.addEventListener("click", addTask);
@@ -18,7 +20,8 @@ function addTask() {
         <p id="task-description" class="description-input" contenteditable="true">${descriptionInput.value}</p>
         <p class="display-date" contenteditable="true">Deadline: ${inputDate.value}</p>
         <button class="delete-button"> <i class="fa fa-trash" aria-hidden="true"></i>  </button>
-        <button class="push-pin">📌</button>
+        <button class="push-pin"><img src="./Assets/push-pin.png" alt="">
+        </button>
         
     </div>`;
 
@@ -81,9 +84,13 @@ function addTask() {
         if (taskList[i].style.order == "0") {
           taskList[i].style.order = "1";
           console.log("pushPin[i].style.order");
+          let pushButton = taskList[i].querySelector(".push-pin");
+          pushButton.innerHTML = '<img src="./Assets/push-pin.png">';
         } else {
           taskList[i].style.cssText = "order:0;";
           console.log(pushPin[i].style.order);
+          let pushButton = taskList[i].querySelector(".push-pin");
+          pushButton.innerHTML = '<img src="./Assets/push-pin (1).png">';
         }
       });
     }
@@ -91,9 +98,11 @@ function addTask() {
   }
 }
 
+// Search functionality
 searchButton.addEventListener("click", function () {
   taskList = document.querySelectorAll(".task");
   let searchInputValue = searchInput.value.trim().toLowerCase(); // Convert to lowercase
+
   for (let i = 0; i < taskList.length; i++) {
     let taskTitle = taskList[i]
       .getElementsByClassName("task-title")[0]
@@ -101,11 +110,90 @@ searchButton.addEventListener("click", function () {
       .toLowerCase(); // Convert to lowercase
 
     if (taskTitle === searchInputValue || searchInputValue == "") {
-      taskList[i].style.cssText = "display:initial;";
+      if (completed.includes(taskList[i])) {
+        taskList[i].style.cssText =
+          "order: 2; opacity: 0.4; text-decoration: line-through; background-color: green;";
+      } else {
+        taskList[i].style.cssText = "display:intial"; // Reset display property for included tasks
+      }
     } else {
       taskList[i].style.cssText = "display:none;";
     }
   }
 });
+// Search functionality ends
+
+// Filter Functionality
+let counter = 1;
+filterButton.addEventListener("click", function () {
+  if (counter % 2 != 0) {
+    // Create "completed" button
+    let completedButton = createFilterButton("Completed", "completed-button");
+    completedButton.addEventListener("click", function () {
+      filterTasks("completed");
+    });
+
+    // Create "Active" button
+    let activeButton = createFilterButton("Active", "active-button");
+    activeButton.addEventListener("click", function () {
+      filterTasks("active");
+    });
+
+    // Create "ShowAll" button
+    let showAllButton = createFilterButton("Show All", "show-all-button");
+    showAllButton.addEventListener("click", function () {
+      filterTasks("all");
+    });
+
+    // Append buttons beside the filter icon
+    options.appendChild(completedButton);
+    options.appendChild(activeButton);
+    options.appendChild(showAllButton);
+  } else {
+    clearFilterButtons();
+  }
+  counter++;
+});
+
+function createFilterButton(label, className) {
+  let button = document.createElement("button");
+  button.textContent = label;
+  button.classList.add("filter-button", className);
+  return button;
+}
+
+function filterTasks(status) {
+  let active = document.querySelectorAll(".task");
+  let activeArray = Array.from(active);
+
+  let filteredTasks = activeArray.filter(function (task) {
+    if (status === "completed") {
+      return completed.includes(task);
+    } else if (status === "active") {
+      return !completed.includes(task);
+    } else {
+      return task;
+    }
+  });
+  for (let i = 0; i < active.length; i++) {
+    if (!filteredTasks.includes(active[i])) {
+      active[i].style.cssText += "display:none;";
+    } else {
+      // Preserve styling for completed tasks
+      if (completed.includes(active[i])) {
+        active[i].style.cssText =
+          "order: 2; opacity: 0.4; text-decoration: line-through; background-color: green;";
+      } else {
+        active[i].style.cssText = ""; // Reset display property for included tasks
+      }
+    }
+  }
+}
+
+function clearFilterButtons() {
+  let existingButtons = document.querySelectorAll(".filter-button");
+  existingButtons.forEach((button) => button.remove());
+}
+// Filter Functionality ends
 
 //=================================================================

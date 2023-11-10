@@ -10,9 +10,11 @@ h1 {
 
 .options {
   width: 100%;
-  margin: 45px 0 35px 0;
+  height: 150px;
+  margin: 45px 0 0px 0;
   display: flex;
   align-items: center;
+  position: relative;
 }
 
 #filter-button {
@@ -22,19 +24,19 @@ h1 {
 }
 
 .search-bar {
+  width: 40%;
   transform: translateX(35%);
+  opacity: 0.6;
+  transform: translateX(100%);
 }
 
 .search-bar input {
   background-color: #edcc8b;
-  opacity: 0.6;
-  color: black;
   border: 0px;
   border-radius: 15px;
-  height: 40px;
   padding: 10px 0 10px 40px;
-  width: 300px;
   font-size: 16px;
+  height: 100%;
 }
 
 #search-button {
@@ -51,7 +53,7 @@ h1 {
   flex-direction: column;
   width: 80%;
   height: 120px;
-  margin: 20px 0 0 0;
+  margin: 15px 0 0 0;
   background-color: #edcc8b;
   border-radius: 10px;
   position: relative;
@@ -90,7 +92,8 @@ input:focus,
 }
 
 #add-to-do,
-.delete-button {
+.delete-button,
+.push-pin {
   background-color: #fff4de;
   width: 40px;
   height: 40px;
@@ -109,11 +112,15 @@ input:focus,
 }
 
 .push-pin {
-  position: absolute;
-  top: 10px;
-  right: 15px;
+  top: 2px;
+  right: 5px;
   background-color: transparent;
   border: transparent;
+}
+
+.push-pin img {
+  width: 20px;
+  height: 20px;
 }
 
 .date-input-container {
@@ -142,4 +149,25 @@ input:focus,
   bottom: 7px;
   left: 40px;
   font-size: 12px;
+}
+
+.active-button,
+.completed-button,
+.show-all-button {
+  position: absolute;
+  left: 120px;
+  bottom: 25px;
+  width: 80px;
+  background-color: #f6d9a0;
+  color: rgb(87, 87, 87);
+  border: none;
+  border-radius: 5px;
+  padding: 3px;
+}
+
+.completed-button {
+  bottom: 52px;
+}
+.show-all-button {
+  bottom: 0;
 }
