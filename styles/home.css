@@ -63,6 +63,10 @@ h1 {
   order: 1;
 }
 
+button {
+  cursor: pointer;
+}
+
 .task-title,
 .description-input,
 .date {

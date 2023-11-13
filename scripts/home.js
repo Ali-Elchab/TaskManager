@@ -9,6 +9,8 @@ let filterButton = document.getElementById("filter-button");
 let options = document.getElementsByClassName("options")[0];
 let completed = [];
 let taskList = [];
+let filter = [];
+
 addButton.addEventListener("click", addTask);
 
 function addTask() {
@@ -83,7 +85,6 @@ function addTask() {
       pushPin[i].addEventListener("click", function () {
         if (taskList[i].style.order == "0") {
           taskList[i].style.order = "1";
-          console.log("pushPin[i].style.order");
           let pushButton = taskList[i].querySelector(".push-pin");
           pushButton.innerHTML = '<img src="./Assets/push-pin.png">';
         } else {
@@ -100,24 +101,27 @@ function addTask() {
 
 // Search functionality
 searchButton.addEventListener("click", function () {
-  taskList = document.querySelectorAll(".task");
   let searchInputValue = searchInput.value.trim().toLowerCase(); // Convert to lowercase
+  if (filter.length == 0) {
+    filter = document.querySelectorAll(".task");
+  }
+  console.log(filter);
 
-  for (let i = 0; i < taskList.length; i++) {
-    let taskTitle = taskList[i]
+  for (let i = 0; i < filter.length; i++) {
+    let taskTitle = filter[i]
       .getElementsByClassName("task-title")[0]
       .textContent.trim()
       .toLowerCase(); // Convert to lowercase
 
     if (taskTitle === searchInputValue || searchInputValue == "") {
-      if (completed.includes(taskList[i])) {
-        taskList[i].style.cssText =
+      if (completed.includes(filter[i])) {
+        filter[i].style.cssText =
           "order: 2; opacity: 0.4; text-decoration: line-through; background-color: green;";
       } else {
-        taskList[i].style.cssText = "display:intial"; // Reset display property for included tasks
+        filter[i].style.cssText = "display:intial"; // Reset display property for included tasks
       }
     } else {
-      taskList[i].style.cssText = "display:none;";
+      filter[i].style.cssText = "display:none;";
     }
   }
 });
@@ -175,9 +179,10 @@ function filterTasks(status) {
       return task;
     }
   });
+  filter = filteredTasks;
   for (let i = 0; i < active.length; i++) {
     if (!filteredTasks.includes(active[i])) {
-      active[i].style.cssText += "display:none;";
+      active[i].style.cssText = "display:none;";
     } else {
       // Preserve styling for completed tasks
       if (completed.includes(active[i])) {
