@@ -102,26 +102,27 @@ function addTask() {
 // Search functionality
 searchButton.addEventListener("click", function () {
   let searchInputValue = searchInput.value.trim().toLowerCase(); // Convert to lowercase
-  if (filter.length == 0) {
-    filter = document.querySelectorAll(".task");
+  tasksShown = document.querySelectorAll(".task");
+  if (filter.length != 0) {
+    tasksShown = filter;
   }
   console.log(filter);
 
-  for (let i = 0; i < filter.length; i++) {
-    let taskTitle = filter[i]
+  for (let i = 0; i < tasksShown.length; i++) {
+    let taskTitle = tasksShown[i]
       .getElementsByClassName("task-title")[0]
       .textContent.trim()
       .toLowerCase(); // Convert to lowercase
 
     if (taskTitle === searchInputValue || searchInputValue == "") {
-      if (completed.includes(filter[i])) {
-        filter[i].style.cssText =
+      if (completed.includes(tasksShown[i])) {
+        tasksShown[i].style.cssText =
           "order: 2; opacity: 0.4; text-decoration: line-through; background-color: green;";
       } else {
-        filter[i].style.cssText = "display:intial"; // Reset display property for included tasks
+        tasksShown[i].style.cssText = "display:intial"; // Reset display property for included tasks
       }
     } else {
-      filter[i].style.cssText = "display:none;";
+      tasksShown[i].style.cssText = "display:none;";
     }
   }
 });
